@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 template <typename T>
@@ -32,6 +33,9 @@ public:
     void removeFirstEl();
     void removeElByIndex(size_t index);
     void clean();                                //Remove all elements
+    void write(ofstream& out);
+    void read(ifstream& in);
+
 };
 
 template <typename T>
@@ -232,4 +236,28 @@ void MyVector<T>::clean()
         size -= size;
     else
         throw logic_error("The vecor is already empty!");
+}
+
+template <typename T>
+void MyVector<T>::write(ofstream& out)
+{
+    if(out.is_open())
+    {
+        out << this->capacity << endl;
+        out << this->size << endl;
+        for(size_t i = 0; i < this->size; i++)
+            out << this->vec[i] << endl;
+    }
+}
+
+template <typename T>
+void MyVector<T>::read(ifstream& in)
+{
+    if(in.is_open())
+    {
+        in >> this->capacity;
+        in >> this->size;
+        for(size_t i = 0; i < this->size; i++)
+            in >>this->vec[i];
+    }
 }
