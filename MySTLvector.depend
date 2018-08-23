@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1535032763 source:d:\c++projects\mystlvector\main.cpp
+	<iostream>
+	"MySTLvector.h"
+
+1535032816 d:\c++projects\mystlvector\mystlvector.h
+	<iostream>
+
